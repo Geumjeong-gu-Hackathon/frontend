@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 z-50 h-16 w-full border-t-2">
+    <footer className="fixed bottom-0 z-50 h-16 w-full border-t-2 bg-white">
       <div className="m-auto flex h-full max-w-[480px] items-center justify-between p-2">
         <Link href="/" className="flex w-20 justify-center">
           <HomeIcon />
