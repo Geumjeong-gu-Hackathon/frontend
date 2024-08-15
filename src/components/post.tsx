@@ -22,7 +22,9 @@ export default function Post() {
           <Avatar>
             <AvatarImage src="https://avatars.githubusercontent.com/u/148404537?s=64&v=4"></AvatarImage>
           </Avatar>
-          <strong>감자전</strong>
+          <p>
+            <strong>감자전</strong> • 부산 금정구
+          </p>
         </div>
         <Button variant="ghost" size="icon">
           <EllipsisVerticalIcon className="h-4 w-4" />
