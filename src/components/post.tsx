@@ -1,61 +1,44 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import {
-  EllipsisVerticalIcon,
-  HeartIcon,
-  MessageCircleIcon,
-} from "lucide-react";
+import { BookmarkIcon, HeartIcon, MessageCircleMoreIcon } from "lucide-react";
+import User from "@/assets/user.svg";
 import Image from "next/image";
 
 export default function Post() {
   return (
-    <Card className="my-4 flex max-w-[480px] flex-col gap-2 border-none">
-      <CardHeader className="flex h-10 flex-row items-center justify-between py-0">
-        <div className="flex items-center gap-2">
-          <Avatar>
-            <AvatarImage src="https://avatars.githubusercontent.com/u/148404537?s=64&v=4"></AvatarImage>
-          </Avatar>
-          <p>
-            <strong>감자전</strong> • 부산 금정구
-          </p>
+    <div className="mb-4 max-w-sm rounded-lg border bg-white p-4">
+      <div className="mb-4 flex items-center">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full">
+          <Image width={40} height={40} src={User} alt="user" />
         </div>
-        <Button variant="ghost" size="icon">
-          <EllipsisVerticalIcon className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="pb-0">
-        <p className="text-lg font-semibold">
-          제목제목제목제목제목제목제목제목제목제목제목
-        </p>
-        <p>내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
-      </CardContent>
-      <AspectRatio ratio={1 / 1}>
-        <Image
-          src="https://quabdfrttgah10486813.cdn.ntruss.com/upload/mgz/46/20210723_12494.png"
-          alt="main"
-          fill
-          className="object-cover sm:rounded-md"
-        />
-      </AspectRatio>
-      <CardFooter>
-        <div className="flex gap-1">
-          <Button variant="ghost">
-            <HeartIcon className="mr-2 h-4 w-4" />
-            <p className="text">222</p>
-          </Button>
-          <Button variant="ghost">
-            <MessageCircleIcon className="mr-2 h-4 w-4" />
-            <p className="text">222</p>
-          </Button>
+        <div className="ml-3">
+          <p className="font-semibold text-gray-700">김동욱</p>
+          <p className="text-sm text-gray-500">@d0ngwook7 · 2일전</p>
         </div>
-      </CardFooter>
-    </Card>
+      </div>
+      <div className="font-bold text-gray-800">부산광역시 기장군 맛집</div>
+      <div className="mb-4 text-gray-600">부산광역시 기장군 맛집입니다.</div>
+      <Image
+        src="https://via.placeholder.com/400x300"
+        alt="Food"
+        className="mb-4 h-[200px] w-full rounded-lg object-cover"
+        width={341}
+        height={200}
+      />
+      <div className="flex justify-between">
+        <div className="flex gap-2">
+          <div className="flex items-center space-x-1 text-gray-500">
+            <HeartIcon className="h-4 w-4" />
+            <span>좋아요 7</span>
+          </div>
+          <div className="flex items-center space-x-1 text-gray-500">
+            <MessageCircleMoreIcon className="h-4 w-4" />
+            <span>댓글 1</span>
+          </div>
+        </div>
+        <div className="flex items-center space-x-1 text-gray-500">
+          <BookmarkIcon className="h-4 w-4" />
+          <span>저장</span>
+        </div>
+      </div>
+    </div>
   );
 }

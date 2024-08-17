@@ -23,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={pretendard.className}>
-        {children}
+        <div className="min-h-screen w-full bg-[#F3F4F6]">
+          <main className="m-auto flex w-[375px] flex-col pb-16 pt-6">
+            {children}
+          </main>
+        </div>
         <Footer />
       </body>
     </html>
