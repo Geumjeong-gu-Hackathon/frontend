@@ -1,8 +1,23 @@
-import { BookmarkIcon, HeartIcon, MessageCircleMoreIcon } from "lucide-react";
+import { BookmarkIcon, MessageCircleMoreIcon } from "lucide-react";
 import User from "@/assets/user.svg";
 import Image from "next/image";
+import 좋아요 from "@/components/좋아요";
 
-export default function Post() {
+interface PostProps {
+  username: string;
+  title: string;
+  content: string;
+  createdAt: string;
+  comments: any[];
+}
+
+export default async function Post({
+  username,
+  title,
+  content,
+  createdAt,
+  comments,
+}: PostProps) {
   return (
     <div className="mb-4 max-w-sm rounded-lg border bg-white p-4">
       <div className="mb-4 flex items-center">
@@ -10,12 +25,14 @@ export default function Post() {
           <Image width={40} height={40} src={User} alt="user" />
         </div>
         <div className="ml-3">
-          <p className="font-semibold text-gray-700">김동욱</p>
-          <p className="text-sm text-gray-500">@d0ngwook7 · 2일전</p>
+          <p className="font-semibold text-gray-700">{username}</p>
+          <p className="text-sm text-gray-500">
+            @d0ngwook7 · {createdAt.slice(0, 10)}
+          </p>
         </div>
       </div>
-      <div className="font-bold text-gray-800">부산광역시 기장군 맛집</div>
-      <div className="mb-4 text-gray-600">부산광역시 기장군 맛집입니다.</div>
+      <div className="font-bold text-gray-800">{title}</div>
+      <div className="mb-4 text-gray-600">{content}</div>
       <Image
         src="https://via.placeholder.com/400x300"
         alt="Food"
@@ -25,13 +42,10 @@ export default function Post() {
       />
       <div className="flex justify-between">
         <div className="flex gap-2">
-          <div className="flex items-center space-x-1 text-gray-500">
-            <HeartIcon className="h-4 w-4" />
-            <span>좋아요 7</span>
-          </div>
+          <좋아요 />
           <div className="flex items-center space-x-1 text-gray-500">
             <MessageCircleMoreIcon className="h-4 w-4" />
-            <span>댓글 1</span>
+            <span>댓글 {comments.length}</span>
           </div>
         </div>
         <div className="flex items-center space-x-1 text-gray-500">
